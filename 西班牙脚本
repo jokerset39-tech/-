@@ -1,26 +1,60 @@
+-- 加载 Kavo UI
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
 
-local Window = Library.CreateLib("西班牙脚本", "Ocean")
+-- 创建 Key System UI
+local KeyWindow = Library.CreateLib("西班牙脚本 Key System", "Ocean")
+local KeyTab = KeyWindow:NewTab("Key System")
+local KeySection = KeyTab:NewSection("请输入Key")
 
-local Tab = Window:NewTab("西班牙脚本禁2改")
+-- 设置允许的 Key 列表
+local validKeys = {
+    "ABC123",  -- 可以自定义你的Key
+    "XYZ789",
+    "DELTAKEY"
+}
 
-local Section = Tab:NewSection("西班牙脚本")
-Section:NewButton("Button墨水游戏", "ButtonInfo", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/wefwef127382/inkgames.github.io/refs/heads/main/ringta.lua"))()
-    print("Clicked")
-end)
-Section:NewButton("99夜", "ButtonInfo", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/wefwef127382/99daysloader.github.io/refs/heads/main/ringta.lua"))()
-    print("Clicked")
-end)
-Section:NewButton("飞行", "ButtonInfo", function()		loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Gui-Fly-v3-37111"))()
+-- Key 输入框
+KeySection:NewTextBox("输入Key", "在此输入Key", function(key)
+    local found = false
+    for _,v in pairs(validKeys) do
+        if key == v then
+            found = true
+            break
+        end
+    end
 
-    print("Clicked")
-end)
-Section:NewButton("4️⃣铁轨", "ButtonInfo", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/ringtaa/BONDTESTINGSAVE.github.io/refs/heads/main/ern.lua"))()
-    print("Clicked")
-end)
-Section:NewButton("被遗弃", "ButtonInfo", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/wefwef127382/forsakenloader.github.io/refs/heads/main/RINGTABUBLIK.lua"))()
-    print("Clicked")
-end)
-Section:NewButton("草人", "ButtonInfo", function() loadstring(game:HttpGet("https://pastebin.com/raw/hkyuHQ7Y"))();
-    print("Clicked")
+    if found then
+        print("Key验证通过！")
+        -- 成功验证后创建主UI
+        local Window = Library.CreateLib("西班牙脚本", "Ocean")
+        local Tab = Window:NewTab("西班牙脚本禁2改")
+        local Section = Tab:NewSection("西班牙脚本")
+
+        Section:NewButton("Button墨水游戏", "ButtonInfo", function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/wefwef127382/inkgames.github.io/refs/heads/main/ringta.lua"))()
+            print("Clicked")
+        end)
+        Section:NewButton("99夜", "ButtonInfo", function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/wefwef127382/99daysloader.github.io/refs/heads/main/ringta.lua"))()
+            print("Clicked")
+        end)
+        Section:NewButton("飞行", "ButtonInfo", function()
+            loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Gui-Fly-v3-37111"))()
+            print("Clicked")
+        end)
+        Section:NewButton("4️⃣铁轨", "ButtonInfo", function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/ringtaa/BONDTESTINGSAVE.github.io/refs/heads/main/ern.lua"))()
+            print("Clicked")
+        end)
+        Section:NewButton("被遗弃", "ButtonInfo", function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/wefwef127382/forsakenloader.github.io/refs/heads/main/RINGTABUBLIK.lua"))()
+            print("Clicked")
+        end)
+        Section:NewButton("草人", "ButtonInfo", function()
+            loadstring(game:HttpGet("https://pastebin.com/raw/hkyuHQ7Y"))()
+            print("Clicked")
+        end)
+    else
+        print("Key无效，请重新输入")
+    end
 end)
