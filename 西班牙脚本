@@ -8,9 +8,9 @@ local KeySection = KeyTab:NewSection("请输入Key")
 
 -- 设置允许的 Key 列表
 local validKeys = {
-    "ABC123",  -- 可以自定义你的Key
-    "XYZ789",
-    "DELTAKEY"
+    "quanweidesheng",  -- 可以自定义你的Key
+    "quanweidesheng",
+    "woshinibaba"
 }
 
 -- Key 输入框
